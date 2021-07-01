@@ -1,1 +1,63 @@
+package Application;
 
+import java.util.*;
+import java.util.Scanner;
+
+import intities.conta;
+
+
+public class program {
+	
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc  = new Scanner(System.in);
+
+	conta Conta;
+		
+		System.out.print("Digite o número da conta: ");
+		int numero = sc.nextInt();
+		sc.nextLine();
+		System.out.print("Digite o nome do correntista: ");
+		String correntista = sc.nextLine(); 
+		
+		System.out.print("Deseja realizar deposito inicial? (Y/N) ");
+		char dep = sc.next().charAt(0);
+		if (dep == 'y') {
+			System.out.print("Digite o valor do deposito inicial: ");
+			double depositoInicial = sc.nextDouble();
+			Conta = new conta(numero, correntista, depositoInicial);
+			}
+		else {
+			Conta = new conta(numero, correntista); 
+		}
+		
+		System.out.println();
+		System.out.println("Dados da conta: ");
+		System.out.println(Conta);
+		System.out.println();
+		
+		System.out.print("Insira um valor de deposito: ");
+		double deposito = sc.nextDouble();
+		Conta.deposito(deposito);
+		System.out.println("Dados da conta: ");
+		System.out.println(Conta);
+		System.out.println();
+		
+		System.out.print("Insira um valor de saque: ");
+		double saque = sc.nextDouble();
+		Conta.saque(saque);
+		System.out.println("Dados da conta: ");
+		System.out.println(Conta);
+		System.out.println();
+		
+	
+		
+	
+		
+		
+		sc.close();
+	}
+	
+		
+	
+}
